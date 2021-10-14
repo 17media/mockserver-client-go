@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"testing"
-	"time"
 
 	"net/http"
 	"net/url"
@@ -85,8 +84,7 @@ func (c *Client) callMock(mockAPI, mockReqBody string) {
 	}
 
 	hc := &http.Client{
-		// Set timeout to 5s instead of default 30s
-		Timeout: time.Duration(5 * time.Second),
+		// No timeout
 	}
 	reader := strings.NewReader(mockReqBody)
 
